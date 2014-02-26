@@ -3,6 +3,8 @@ Decoders?
 
 Yes.  Yes, it is.
 
+See http://www.alsonkemp.com/geekery/simple-decoders-for-kids/
+
 Notes
 =====
 
