@@ -1,0 +1,44 @@
+!!! 5
+html(lang='en', ng-app="Decoders")
+  head
+    meta(charset='utf-8')
+    title Simple Decoders For Kids
+    link(href='http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css', rel="stylesheet", type="text/css")
+    link(href='./stylesheets/app.css', rel="stylesheet", type="text/css")
+    link(href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css", rel="stylesheet")
+  body#decoders(ng-controller="DecodersCtrl")
+    #inputs(ng-hide="print")
+      .print
+        button(type="button" class="btn btn-primary" ng-click="doPrint()") Print!
+      form.form-horizontal(role="form")
+        .form-group
+          label.left-col.control-label Phrase
+          .right-col
+            input.form-control(type="text", ng-model="phrase")
+        .form-group
+          label.left-col.control-label More/Fewer Symbols
+          .right-col
+            input(type="number", ng-model="delta_symbols")
+    .display
+      #symbols
+        .title The Codes!
+        .symbol-holder(ng-repeat="symbol in symbols")
+          .letter.fa.fa-lg(ng-class="symbol.icon")
+          | =
+          i.symbol(ng-bind="symbol.letter")
+        .hint(ng-bind="hint", ng-display="hint")
+      #encoder
+        .title The Message!
+        .encoder-holder(ng-repeat="encoder in encoders track by $index")
+          .entry(ng-style="{blank: !encoder.letter}")
+          .symbol.fa.fa-lg(ng-class="encoder.icon")
+
+
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js')
+    script(src='https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r61/three.min.js')
+    script(src='./javascripts/base.js')
+    script(src='./javascripts/decoder_controller.js')
+

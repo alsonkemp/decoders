@@ -1,0 +1,71 @@
+#decoders {
+  overflow: hidden;
+  #inputs{
+    margin: 20px auto;
+    width: 500px;
+    .left-col {
+      float: left;
+      width: 100px;
+    }
+    .right-col {
+      float: left;
+      width: 400px;
+    }
+  }
+  #symbols, #encoder {
+    display: inline-block;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    border: 1px solid #aaa;
+    margin: 10px 0 10px 20px;
+    border-radius: 5px;
+    .title {
+      text-decoration: underline;
+    }
+    .symbol-holder {
+      display: inline-block;
+      .letter {
+        width:  60px;
+      }
+      .symbol {
+        width: 70px;
+      }
+    }
+  }
+  #symbols {
+    width: 20%;
+    float: left;
+    .symbol-holder {
+      .letter {
+        display: inline-block;
+      }
+      .symbol {
+        display: inline-block;
+      }
+    }
+    .hint {
+      font-size: 12px;
+      margin-top: 20px;
+      color: #f88;
+    }
+  }
+  #encoder {
+    width: 70%;
+    .title {
+      margin-bottom: 50px;
+    }
+    .encoder-holder {
+      display: inline-block;
+      padding: 15px;
+      padding-top: 50px;
+      &.space {
+        visibility: hidden;
+        width: 1em;
+      }
+      .entry {
+        border-bottom: 1px solid #333;
+      }
+    }
+  }
+}

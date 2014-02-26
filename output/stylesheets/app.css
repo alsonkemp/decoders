@@ -1,0 +1,74 @@
+#decoders {
+  overflow: hidden;
+}
+#decoders #inputs {
+  margin: 20px auto;
+  width: 500px;
+}
+#decoders #inputs .left-col {
+  float: left;
+  width: 100px;
+}
+#decoders #inputs .right-col {
+  float: left;
+  width: 400px;
+}
+#decoders #symbols,
+#decoders #encoder {
+  display: inline-block;
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+  border: 1px solid #aaa;
+  margin: 10px 0 10px 20px;
+  border-radius: 5px;
+}
+#decoders #symbols .title,
+#decoders #encoder .title {
+  text-decoration: underline;
+}
+#decoders #symbols .symbol-holder,
+#decoders #encoder .symbol-holder {
+  display: inline-block;
+}
+#decoders #symbols .symbol-holder .letter,
+#decoders #encoder .symbol-holder .letter {
+  width: 60px;
+}
+#decoders #symbols .symbol-holder .symbol,
+#decoders #encoder .symbol-holder .symbol {
+  width: 70px;
+}
+#decoders #symbols {
+  width: 20%;
+  float: left;
+}
+#decoders #symbols .symbol-holder .letter {
+  display: inline-block;
+}
+#decoders #symbols .symbol-holder .symbol {
+  display: inline-block;
+}
+#decoders #symbols .hint {
+  font-size: 12px;
+  margin-top: 20px;
+  color: #f88;
+}
+#decoders #encoder {
+  width: 70%;
+}
+#decoders #encoder .title {
+  margin-bottom: 50px;
+}
+#decoders #encoder .encoder-holder {
+  display: inline-block;
+  padding: 15px;
+  padding-top: 50px;
+}
+#decoders #encoder .encoder-holder.space {
+  visibility: hidden;
+  width: 1em;
+}
+#decoders #encoder .encoder-holder .entry {
+  border-bottom: 1px solid #333;
+}

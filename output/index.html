@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="Decoders">
+  <head>
+    <meta charset="utf-8">
+    <title>Simple Decoders For Kids</title>
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="./stylesheets/app.css" rel="stylesheet" type="text/css">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  </head>
+  <body id="decoders" ng-controller="DecodersCtrl">
+    <div id="inputs" ng-hide="print">
+      <div class="print">
+        <button type="button" ng-click="doPrint()" class="btn btn-primary">Print!</button>
+      </div>
+      <form role="form" class="form-horizontal">
+        <div class="form-group">
+          <label class="left-col control-label">Phrase</label>
+          <div class="right-col">
+            <input type="text" ng-model="phrase" class="form-control">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="left-col control-label">More/Fewer Symbols</label>
+          <div class="right-col">
+            <input type="number" ng-model="delta_symbols">
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="display">
+      <div id="symbols">
+        <div class="title">The Codes!</div>
+        <div ng-repeat="symbol in symbols" class="symbol-holder">
+          <div ng-class="symbol.icon" class="letter fa fa-lg"></div>=<i ng-bind="symbol.letter" class="symbol"></i>
+        </div>
+        <div ng-bind="hint" ng-display="hint" class="hint"></div>
+      </div>
+      <div id="encoder">
+        <div class="title">The Message!</div>
+        <div ng-repeat="encoder in encoders track by $index" class="encoder-holder">
+          <div ng-style="{blank: !encoder.letter}" class="entry"></div>
+          <div ng-class="encoder.icon" class="symbol fa fa-lg"></div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.1/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r61/three.min.js"></script>
+    <script src="./javascripts/base.js"></script>
+    <script src="./javascripts/decoder_controller.js"></script>
+  </body>
+</html>
