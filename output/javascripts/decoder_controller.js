@@ -6,7 +6,7 @@
     _.extend($scope, {
       phrase: $location.search().phrase || "",
       symbols: [],
-      encoders: [],
+      words: [],
       delta_symbols: 0,
       hint: "",
       print: false,
@@ -22,7 +22,7 @@
       return updateSymbols();
     });
     updateSymbols = function() {
-      var altered_phrase, cleaned_phrase, random_symbols;
+      var altered_phrase, cleaned_phrase, l, random_symbols, word, _i, _len, _ref;
       $location.search({
         phrase: $scope.phrase
       });
@@ -45,11 +45,21 @@
           letter: l
         };
       }));
-      $scope.encoders = _.map($scope.phrase, function(l) {
-        return _.find($scope.symbols, function(s) {
-          return s.letter === l;
-        });
-      });
+      $scope.words = [];
+      word = [];
+      _ref = $scope.phrase;
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        l = _ref[_i];
+        if (l === ' ') {
+          $scope.words.push(word);
+          word = [];
+        } else {
+          word.push(_.find($scope.symbols, function(s) {
+            return s.letter === l;
+          }));
+        }
+      }
+      $scope.words.push(word);
       if ($scope.delta_symbols < 0) {
         $scope.hint = "Oh no!  We're missing " + (0 - $scope.delta_symbols) + " codes!";
         return $scope.symbols = $scope.symbols.slice(0, $scope.symbols.length + $scope.delta_symbols);

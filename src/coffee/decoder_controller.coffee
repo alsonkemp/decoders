@@ -27,7 +27,7 @@ Decoders.controller 'DecodersCtrl', ($scope, $location, $timeout) ->
   _.extend $scope,
     phrase: $location.search().phrase or ""
     symbols:[]
-    encoders:[]
+    words:[]
     delta_symbols: 0
     hint: ""
     print: false
@@ -54,8 +54,17 @@ Decoders.controller 'DecodersCtrl', ($scope, $location, $timeout) ->
                        _.map altered_phrase, (l) ->
                          {icon: random_symbols.shift(), letter: l}
                        )
-    $scope.encoders = _.map $scope.phrase, (l) ->
-                        _.find $scope.symbols, (s) -> s.letter == l
+
+    $scope.words = []
+    word = []
+    for l in $scope.phrase
+      if l == ' '
+        $scope.words.push word
+        word = []
+      else
+        word.push _.find($scope.symbols, (s) -> s.letter == l)
+    $scope.words.push word
+                        
 
     if $scope.delta_symbols < 0
       $scope.hint = "Oh no!  We're missing " + (0-$scope.delta_symbols) + " codes!"

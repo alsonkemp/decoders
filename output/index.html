@@ -8,6 +8,25 @@
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
   </head>
   <body id="decoders" ng-controller="DecodersCtrl">
+    <div class="display">
+      <div id="symbols">
+        <div class="title">The Codes!</div>
+        <div ng-repeat="symbol in symbols" class="symbol-holder">
+          <div ng-class="symbol.icon" class="letter fa fa-lg"></div>=<i ng-bind="symbol.letter" class="symbol"></i>
+        </div>
+        <div ng-bind="hint" ng-display="hint" class="hint"></div>
+      </div>
+      <div id="encoder">
+        <div class="title">The Message!</div>
+        <div class="words">
+          <div ng-repeat="word in words track by $index" class="word">
+            <div ng-repeat="letter in word track by $index" class="letter">
+              <div ng-class="letter.icon" class="symbol fa fa-lg"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div id="inputs" ng-hide="print">
       <div class="print">
         <button type="button" ng-click="doPrint()" class="btn btn-primary">Print!</button>
@@ -26,22 +45,6 @@
           </div>
         </div>
       </form>
-    </div>
-    <div class="display">
-      <div id="symbols">
-        <div class="title">The Codes!</div>
-        <div ng-repeat="symbol in symbols" class="symbol-holder">
-          <div ng-class="symbol.icon" class="letter fa fa-lg"></div>=<i ng-bind="symbol.letter" class="symbol"></i>
-        </div>
-        <div ng-bind="hint" ng-display="hint" class="hint"></div>
-      </div>
-      <div id="encoder">
-        <div class="title">The Message!</div>
-        <div ng-repeat="encoder in encoders track by $index" class="encoder-holder">
-          <div ng-style="{blank: !encoder.letter}" class="entry"></div>
-          <div ng-class="encoder.icon" class="symbol fa fa-lg"></div>
-        </div>
-      </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>

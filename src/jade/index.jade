@@ -7,6 +7,20 @@ html(lang='en', ng-app="Decoders")
     link(href='./stylesheets/app.css', rel="stylesheet", type="text/css")
     link(href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css", rel="stylesheet")
   body#decoders(ng-controller="DecodersCtrl")
+    .display
+      #symbols
+        .title The Codes!
+        .symbol-holder(ng-repeat="symbol in symbols")
+          .letter.fa.fa-lg(ng-class="symbol.icon")
+          | =
+          i.symbol(ng-bind="symbol.letter")
+        .hint(ng-bind="hint", ng-display="hint")
+      #encoder
+        .title The Message!
+        .words
+          .word(ng-repeat="word in words track by $index")
+            .letter(ng-repeat="letter in word track by $index")
+              .symbol.fa.fa-lg(ng-class="letter.icon")
     #inputs(ng-hide="print")
       .print
         button(type="button" class="btn btn-primary" ng-click="doPrint()") Print!
@@ -19,19 +33,6 @@ html(lang='en', ng-app="Decoders")
           label.left-col.control-label More/Fewer Symbols
           .right-col
             input(type="number", ng-model="delta_symbols")
-    .display
-      #symbols
-        .title The Codes!
-        .symbol-holder(ng-repeat="symbol in symbols")
-          .letter.fa.fa-lg(ng-class="symbol.icon")
-          | =
-          i.symbol(ng-bind="symbol.letter")
-        .hint(ng-bind="hint", ng-display="hint")
-      #encoder
-        .title The Message!
-        .encoder-holder(ng-repeat="encoder in encoders track by $index")
-          .entry(ng-style="{blank: !encoder.letter}")
-          .symbol.fa.fa-lg(ng-class="encoder.icon")
 
 
     script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js')

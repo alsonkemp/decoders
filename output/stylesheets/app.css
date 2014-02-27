@@ -2,7 +2,9 @@
   overflow: hidden;
 }
 #decoders #inputs {
-  margin: 20px auto;
+  position: absolute;
+  bottom: 0;
+  left: 0;
   width: 500px;
 }
 #decoders #inputs .left-col {
@@ -15,12 +17,12 @@
 }
 #decoders #symbols,
 #decoders #encoder {
-  display: inline-block;
+  position: absolute;
+  top: 20px;
   text-align: center;
-  font-size: 40px;
+  font-size: 32px;
   font-weight: bold;
   border: 1px solid #aaa;
-  margin: 10px 0 10px 20px;
   border-radius: 5px;
 }
 #decoders #symbols .title,
@@ -40,8 +42,8 @@
   width: 70px;
 }
 #decoders #symbols {
-  width: 20%;
-  float: left;
+  width: 310px;
+  left: 20px;
 }
 #decoders #symbols .symbol-holder .letter {
   display: inline-block;
@@ -55,20 +57,19 @@
   color: #f88;
 }
 #decoders #encoder {
-  width: 70%;
+  left: 350px;
 }
 #decoders #encoder .title {
   margin-bottom: 50px;
 }
-#decoders #encoder .encoder-holder {
+#decoders #encoder .words .word {
   display: inline-block;
   padding: 15px;
   padding-top: 50px;
 }
-#decoders #encoder .encoder-holder.space {
-  visibility: hidden;
-  width: 1em;
-}
-#decoders #encoder .encoder-holder .entry {
-  border-bottom: 1px solid #333;
+#decoders #encoder .words .word .letter {
+  border-top: 1px solid #333;
+  display: inline-block;
+  padding: 10px;
+  margin: 0 5px;
 }
